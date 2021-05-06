@@ -73,21 +73,43 @@ li:hover{
 #view_links{
     text-decoration: none;
 }
-
-.view_links:link, .view_links:visited {
+#update_link{
+    text-decoration: none;
+}
+#delete_link:link, #delete_link:visited {
     background-color: DarkSalmon ;
     border: none;
     color: #FFFFFF;
-    padding: 25px 52px;
+    padding: 10px 10px;
     text-align: center;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 10px;
     text-align: center; 
     cursor: pointer;
     display: inline-block;
+    border-radius: 9%;
 }
-.view_links:hover, .view_links:active {
+#delete_link:hover, #delete_link:active {
     background-color: DarkRed ;
+}
+
+#update_link:link, #update_link:visited{
+    background-color: #09c246;
+    border:none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    font-size: 10px;
+    cursor:pointer;
+    display: inline-block;
+    border-radius: 9%;
+} 
+
+#update_link:hover, #update_link:active{
+    background-color: green;
 }
