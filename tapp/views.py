@@ -14,8 +14,7 @@ def home_view(request):
             t_form.save()
         
         return redirect('/')
-
-    return render(request, 'tapp\index.html', {'tasks':tasks})
+    return render(request, 'tapp\home.html', {'tasks':tasks, 't_form':t_form})
 
 def view_todo(request, pk):
     todo = TodoModel.objects.get(id=pk)

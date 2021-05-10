@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'tapp\home1.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="cont_principal">
+        <div class="cont_centrar">
+        
+            <div class="cont_todo_list_top">
+            <div class="cont_titulo_cont">
+                <h3>SWIFT TASKS</h3>
+            </div>
+            
+            <!-- <div class="cont_add_titulo_cont"><a href="#e" onclick="add_new()">add</a> </div> -->
+         
+        </div>
+
+        <div class="cont_crear_new">
+            <table class="table">
+                <tr>
+                    <th>Action</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="" id="action_select">
+                            <option value="SHOPPING">SHOPPING</option>
+                            <option value="WORK">WORK</option> <option value="SPORT">SPORT</option> <option value="MUSIC">MUSIC</option> 
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="input_title_desc" />      
+        
+                        <!-- End td 2 -->
+                    </td>
+                    <td>
+                        <select name="" class="input_description_title"  id="date_select">
+                            <option value="TODAY">TODAY</option>
+                            <option value="TOMORROW">TOMORROW</option>      
+                        </select>
+        
+                        <!-- End td 3 -->
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="titl_description" >Description</th>
+                </tr>
+        
+                <tr>
+                    <td colspan="3">
+                        <input type="text" class="input_description" required />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        <button class="btn_add_fin"  onclick="add_to_list()">ADD</button>
+                    </td>
+
+                </tr>
+          
+            </table>
+        </div>
+
+        <div class="cont_princ_lists">
+            <form action="", method="POST">
+                {% csrf_token %}
+                <!-- <input id="add" type="text" placeholder="add a task", name="title">
+                <input type="text", name="body", placeholder="body"> -->
+                
+                {{ t_form }}
+
+                <div class="add-button">
+                    <button type="submit" id="btn">Add</button>
+                </div>
+            </form>
+        </div>
+          
+        <div class="cont_princ_lists">
+            {% for t in tasks %}
+            <ul>
+                <li class="list_shopping li_num_0_1">
+
+                <div class="col_md_1_list">
+                    <p>{{ t.now }}</p>
+                </div>
+
+                <div class="col_md_2_list">
+                    <h4>{{ t.title }}</h4>
+                    <p>{{ t.body }}</p>
+                </div>
+
+                <div class="col_md_3_list">
+                        
+                    <div class="cont_text_date" id='third_col'>
+                        <h4>{{ t.completed }}</h4>
+                        <p>completed</p>
+                    </div>
+                </div>
+            </ul>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>

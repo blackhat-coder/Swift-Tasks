@@ -3,27 +3,29 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>To-Do List</title>
+        <title>Swift Tasks</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="{% static 'tapp\main.css' %}">
+        <link rel="stylesheet" href="{% static 'tapp\index.css' %}">
     </head>
     
     <body>
         <div class="container">
-            <h1>To-do list</h1>
+            <h1>Swift Tasks</h1>
             <div class="add-elements">
                 <form action="", method="POST">
                     {% csrf_token %}
                     <input id="add" type="text" placeholder="add a task", name="title">
                     <input type="text", name="body", placeholder="body">
-                    <button type="submit" id="btn">Add</button>
+                    <div class="add-button">
+                        <button type="submit" id="btn">Add</button>
+                    </div>
                 </form>
             </div>
             
             <div class="element-list">
                 <ul id="list">
                     {% for t in tasks %}
-                    <li><a href="{% url 'view_todo' t.id %}">{{ t.title }}</a> <a href="{% url 'update' t.id %}">update</a> <a href="{% url 'delete' t.id %}">delete</a> </li>
+                    <li><a id="view_links" href="{% url 'view_todo' t.id %}">{{ t.title }}</a> <a id="update_link" href="{% url 'update' t.id %}">update</a> <a id="delete_link" href="{% url 'delete' t.id %}">delete</a> </li>
                     {% endfor %}
                 </ul>
             </div>
