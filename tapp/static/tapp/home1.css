@@ -238,9 +238,9 @@
     width: 121px;
     position: relative;
     float: left;
-  height: 14px;
+    height: 14px;
     top:50%;
-    margin-top: -10px;
+    margin-top: -20px;
   }
   
   .col_md_3_list > .cont_text_date {
@@ -294,6 +294,14 @@
   
   .col_md_3_list > .cont_btns_options > ul > li > a > i {
     font-size: 15px;
+  }
+
+  #third_col > p {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: #999;
   }
   
   .list_dsp_none {

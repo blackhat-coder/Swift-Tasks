@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'tapp\home.css' %}">
+    <link rel="stylesheet" href="{% static 'tapp\home1.css' %}">
     <title>Document</title>
 </head>
 
@@ -75,8 +75,11 @@
         <div class="cont_princ_lists">
             <form action="", method="POST">
                 {% csrf_token %}
-                <input id="add" type="text" placeholder="add a task", name="title">
-                <input type="text", name="body", placeholder="body">
+                <!-- <input id="add" type="text" placeholder="add a task", name="title">
+                <input type="text", name="body", placeholder="body"> -->
+                
+                {{ t_form }}
+
                 <div class="add-button">
                     <button type="submit" id="btn">Add</button>
                 </div>
@@ -84,26 +87,28 @@
         </div>
           
         <div class="cont_princ_lists">
+            {% for t in tasks %}
             <ul>
                 <li class="list_shopping li_num_0_1">
 
                 <div class="col_md_1_list">
-                    <p>date</p>
+                    <p>{{ t.now }}</p>
                 </div>
 
                 <div class="col_md_2_list">
-                    <h4>BUY COFFEE BEANS</h4>
-                    <p>DODIDONE COFFEE STORE</p>
+                    <h4>{{ t.title }}</h4>
+                    <p>{{ t.body }}</p>
                 </div>
 
                 <div class="col_md_3_list">
                         
-                    <div class="cont_text_date">
-                        <p>TODAY</p>     
+                    <div class="cont_text_date" id='third_col'>
+                        <h4>{{ t.completed }}</h4>
+                        <p>completed</p>
                     </div>
                 </div>
             </ul>
-
+            {% endfor %}
         </div>
     </div>
 
