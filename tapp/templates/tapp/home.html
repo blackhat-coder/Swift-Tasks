@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'tapp\home1.css' %}">
+    <link rel="stylesheet" href="{% static 'tapp\home2.css' %}">
     <title>Document</title>
 </head>
 
@@ -92,7 +92,7 @@
                 <li class="list_shopping li_num_0_1">
 
                 <div class="col_md_1_list">
-                    <p>{{ t.now }}</p>
+                    <p>{{ t.get_date }}</p>
                 </div>
 
                 <div class="col_md_2_list">
@@ -107,6 +107,16 @@
                         <p>completed</p>
                     </div>
                 </div>
+
+                <div class="col_md_4_list">
+                    <div>
+                        <a id="delete_link" href="{% url 'delete' t.id %}">delete</a>
+                    </div>
+                    <div>
+                        <a id="update_link" href="{% url 'update' t.id %}">update</a>
+                    </div>
+                </div>
+
             </ul>
             {% endfor %}
         </div>
